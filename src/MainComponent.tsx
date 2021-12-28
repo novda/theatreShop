@@ -44,6 +44,7 @@ export function MainComponent() {
 
     let items = state.items;
 
+
     return (
       <Container>
           <Row className="filter-buttons">

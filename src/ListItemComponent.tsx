@@ -23,14 +23,17 @@ interface ListItemComponentProps {
 export function ListItemComponent(props: ListItemComponentProps) {
     let item = props.item;
 
+    function addToCart(item: ShopItem) {
+        cartService.addCartItem(cartItemFromShopItem(item));
+    }
 
     return (
-        <Link to={"/item/" + item.id} className="itemLink">
+        <Link to={"/item/" + item.id} className="itemLink" onClick={() => addToCart(item)}>
         <Card className={"list-item"} style={{ width: '18rem' , cursor: "pointer", height: '30rem'}}>
             <Card.Img style={{height: 242}} variant="top" src={item.imageSrc} />
             <Card.Body>
                 <Card.Title>
-                        {item.title}
+                    {item.title}
                 </Card.Title>
                 <Card.Text>
                     {item.brief}

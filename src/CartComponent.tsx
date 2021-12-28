@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {CartItem} from "./CartItem";
+import {CartItem, cartItemFromShopItem} from "./CartItem";
 import {Button, Col, Container, Row} from "react-bootstrap";
 import {cartService} from "./CartService";
 import {CartItemComponent} from "./CartItemComponent";
 import {DataServiceInstance} from "./DataService";
 import {ShopItem} from "./ShopItem";
+import { Link } from 'react-router-dom';
 
 /**
  * Состояние компоненты с корзиной.
@@ -71,10 +72,22 @@ export function CartComponent() {
         });
     }, []);
 
+
+    function clearLastView() {
+        localStorage.clear();
+        changeState({        cartItems: [],
+            fullPrice: 0
+        });
+    }
+
     return (
         <Container>
+                <h3> Страница личного кабинета пока в разработке ¯\_(ツ)_/¯ </h3>
+            <div>
+                <img src={"https://www.hse.ru/f/src/global/i/404/2.gif"} alt={"shrug"}/>
+            </div>
             {/*Полная цена*/}
-            <h2>Full price is ${state.fullPrice}</h2>
+            <h3>Последние просмотренные:</h3>
             <Row>
                 {/*Отрисовываем каждый элемент в корзине*/}
                 {
@@ -87,8 +100,7 @@ export function CartComponent() {
                     })
                 }
             </Row>
-            {/*Просто кнопка-заглушка*/}
-            <Button variant="success">Proceed to checkout</Button>
+            <Button onClick={clearLastView} className={"clear-button"} variant="outline-primary">Очистить</Button>
         </Container>
     );
 }

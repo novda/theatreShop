@@ -7,8 +7,7 @@ import {CartComponent} from "./CartComponent";
 import {BuyTicketComponent} from "./BuyTicketComponent";
 import {Button, Container, Nav, Navbar} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
-import {faOpencart} from "@fortawesome/free-brands-svg-icons";
+import {faUser} from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Главная компонента приложения.
@@ -26,6 +25,16 @@ export function App() {
                         {/*Ссылка перехода на главную страницу*/}
                         <Nav.Link href="/">Home</Nav.Link>
                     </Nav>
+                    <Nav className="justify-content-end">
+                        {/*Ссылка для перехода в корзину*/}
+                        <Link to={"/user"}>
+                            {/*Кнопка корзины*/}
+                            <Button variant={"primary"}>
+                                {/*Иконка с корзиной*/}
+                                <FontAwesomeIcon icon={faUser} />
+                            </Button>
+                        </Link>
+                    </Nav>
                 </Container>
             </Navbar>
 
@@ -36,7 +45,7 @@ export function App() {
                 {/*3. /cart - корзина*/}
                 <Route path={""} element={<MainComponent/>}/>
                 <Route path={"item/:itemId"} element={<SingleItemComponent/>}/>
-                <Route path={"cart"} element={<CartComponent/>}/>
+                <Route path={"user"} element={<CartComponent/>}/>
                 <Route path={"buy-ticket"} element={<BuyTicketComponent/>}/>
             </Routes>
         </BrowserRouter>

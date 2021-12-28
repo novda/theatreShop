@@ -108,5 +108,5 @@ class BrowserCartService implements CartService {
 }
 
 // Используем серверную корзину
-export const cartService = new ServerCartService();
+export const cartService = new BrowserCartService();
 

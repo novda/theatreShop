@@ -44,9 +44,6 @@ export function CartItemComponent(props: CartItemComponentProps) {
                         <Card.Title>{state.item?.title}</Card.Title>
                         <Card.Text>
                             <div>
-                                Quantity: {props.cartItem.quantity}
-                            </div>
-                            <div>
                                 {
                                 // То же самое что
                                 // let itemPrice = 0;
@@ -57,7 +54,7 @@ export function CartItemComponent(props: CartItemComponentProps) {
                                 // Price: ${itemPrice}
                                 }
 
-                                Price: ${props.cartItem.quantity * (state.item?.price ?? 0)}
+                                Price: ₽{state.item?.price}
                             </div>
                         </Card.Text>
                     </Card.Body>
